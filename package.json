@@ -5,7 +5,10 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "dev": "concurrently \"npm run dev:electron\" \"npm run dev:renderer\"",
+    "dev:electron": "nodemon --exec electron . --watch main.js --watch preload.js --watch package.json",
+    "dev:renderer": "live-server --watch=src --port=3000 --mount=/:src"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.10.2",
@@ -16,7 +19,10 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.10.2",
     "@electron-forge/plugin-fuses": "^7.10.2",
     "@electron/fuses": "^1.8.0",
-    "electron": "^39.2.5"
+    "concurrently": "^9.2.1",
+    "electron": "^39.2.5",
+    "electron-reload": "^2.0.0-alpha.1",
+    "nodemon": "^3.1.11"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1"
