@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,15 +18,26 @@
         }
     </style>
 </head>
+
 <body class="m-0 p-0">
     <div class="bg-container flex flex-col w-full min-h-screen items-center justify-center">
         <div class="flex flex-col items-center justify-center p-8  rounded-xl bg-black/50 backdrop-blur-md shadow-2xl">
             <h1 class="text-5xl font-bold text-red-400 mb-4">Good Evening Eugene</h1>
-            <p class="text-2xl text-blue-300">Welcome to Electron!</p>
-            <p class="text-gray-300 mt-4 text-center max-w-md">
-                This is your portfolio with a properly loading background image.
-            </p>
+            <h2 class="text-2xl text-blue-300">Welcome to Electron!</h2>
+            <h3 class="text-gray-300 mt-4 text-center max-w-md">
+                This is your portfolio with a properly loading background image from the internet.
+            </h3>
+            <p id="time" class="text-white text-2xl mt-4">Current Time: </p>
         </div>
     </div>
 </body>
+<script>
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const time = `${hours}:${minutes}:${seconds}`;
+    document.querySelector("#time").textContent = time;
+</script>
+
 </html>
